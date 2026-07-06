@@ -42,6 +42,8 @@ services:
       - ENABLE_ES=true
       - ES_SEEDS=elasticsearch
       - ES_VERSION=v7
+      # required for Temporal to be able to listen on all interfaces, otherwise it will only listen on localhost and you won't be able to connect to it from outside the host machine.:
+      - BIND_ON_IP=0.0.0.0
       # Not required but ok:
       - TEMPORAL_ADDRESS=temporal:7233
       - TEMPORAL_CLI_ADDRESS=temporal:7233
